@@ -8,7 +8,7 @@ flopt = BATSFLopt(M,K,q,h);
 
 % Soliton Distribution
 
-dd_sol = flopt.solitonDist();
+dd_sol = solitonDist(K);
 
 flopt.setDegreeDist(dd_sol);
 stop_sol = flopt.FixedRec_acc(400,'BP');
@@ -40,13 +40,13 @@ stop_150 = flopt.FixedRec_acc(400,'BP');
 
 save(filename,'dd_150','dd_150_diff','stop_150','err_150','eco_150','-append');
 
-[dd_160, dd_160_diff] = flopt.ddOpt(160,dd_sol,100,'BP');
-
-flopt.setDegreeDist(dd_160);
-stop_160 = flopt.FixedRec_acc(400,'BP');
-[err_160,eco_160] = flopt.errorProb(stop_160);
-
-save(filename,'dd_160','dd_160_diff','stop_160','err_160','eco_160','-append');
+% [dd_160, dd_160_diff] = flopt.ddOpt(160,dd_sol,100,'BP');
+% 
+% flopt.setDegreeDist(dd_160);
+% stop_160 = flopt.FixedRec_acc(400,'BP');
+% [err_160,eco_160] = flopt.errorProb(stop_160);
+% 
+% save(filename,'dd_160','dd_160_diff','stop_160','err_160','eco_160','-append');
 
 
 % Optimize Inactivation decoding
@@ -59,10 +59,10 @@ ein_130 = flopt.expinac(inac_130);
 
 save(filename,'dd_130','dd_130_diff','inac_130','ein_130','-append');
 
-[dd_135, dd_135_diff] = flopt.ddOpt(135,dd_sol,100,'inac');
-
-flopt.setDegreeDist(dd_135);
-inac_135 = flopt.FixedRec_acc(400,'inac');
-ein_135 = flopt.expinac(inac_135);
-
-save(filename,'dd_135','dd_135_diff','inac_135','ein_135','-append');
+% [dd_135, dd_135_diff] = flopt.ddOpt(135,dd_sol,100,'inac');
+% 
+% flopt.setDegreeDist(dd_135);
+% inac_135 = flopt.FixedRec_acc(400,'inac');
+% ein_135 = flopt.expinac(inac_135);
+% 
+% save(filename,'dd_135','dd_135_diff','inac_135','ein_135','-append');
